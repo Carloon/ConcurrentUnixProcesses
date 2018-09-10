@@ -41,6 +41,7 @@ $Author: o1-hester $
 #include <unistd.h>
 #include <string.h>
 #include <time.h>
+#include <ctype.h>
 #include "ipchelper.h"
 #include "sighandler.h"
 #include "filehelper.h"

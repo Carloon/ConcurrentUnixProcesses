@@ -50,6 +50,39 @@ $Author: o1-hester $
 #include "filehelper.h"
 #define INFILE "./strings.in"
 
+#if 0 /* Stuff added to get past restrictive compilers */
+#include <wait.h>
+#include <signal.h>
+/* the decs below are in  <bits/sigaction.h> in signal.h */
+
+
+/* in signal.h Type of a signal handler.  */
+typedef void (*__sighandler_t) (int);
+
+# define _SIGSET_NWORDS	(1024 / (8 * sizeof (unsigned long int)))
+typedef struct
+  {
+    unsigned long int __val[_SIGSET_NWORDS];
+  } __sigset_t;
+
+/* Structure describing the action to be taken when a signal arrives.  */
+struct sigaction
+  {
+    /* Signal handler.  */
+    __sighandler_t sa_handler;
+
+    /* Additional set of signals to be blocked.  */
+    __sigset_t sa_mask;
+
+    /* Special flags.  */
+    int sa_flags;
+
+    /* Restore handler.  */
+    void (*sa_restorer) (void);
+  };
+
+
+#endif
 int initmylist(const char* filename, int* lines, char*** mylist);
 int initsighandlers();
 int initsemaphores(int semid, int lines);

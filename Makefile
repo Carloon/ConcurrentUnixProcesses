@@ -20,13 +20,13 @@ default: all
 all: master palin
 
 %.o: %.c $(HEADERS)
-	gcc -c $< -o $@
+	$(CC) -c $< -o $@
 
 master: master.o $(OBJECTS) 
-	gcc $< $(OBJECTS) -o $@
+	$(CC) $< $(OBJECTS) -o $@
 
 palin: palin.o $(OBJECTS) 
-	gcc $< $(OBJECTS) -o $@
+	$(CC) $< $(OBJECTS) -o $@
 
 clean:
 	-rm -f *.o *.out
