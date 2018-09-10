@@ -1,9 +1,2 @@
-sudo: required
-services:
-  - docker
-language: rvpc
 script:
   - bash <(curl -s https://runtimeverification.com/toolkit/docker/bash) nightly
-# This will download rv-toolkit docker image with tag "nightly" and run `rv.sh` file.
-# More images could be found at: https://hub.docker.com/r/runtimeverification/rv-sandbox/tags/
- - make CC=rvpc LD=rvpc
